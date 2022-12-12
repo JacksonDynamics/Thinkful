@@ -1,28 +1,15 @@
 import React, { useState } from "react";
+import Header from './Header'
+import Content from "./Content"
 
 function App() {
-  const [subscribed, setSubscribed] = useState(false);
-  const [subscribedCount, setSubscribedCount] = useState(0);
-  const [alerts, setAlerts] = useState(false);
-
+  const [loggedIn, setLoggedIn] = useState(false);
+  const toggleLoggedIn = () => setLoggedIn(!loggedIn);
   return (
-    <section>
-      <p>Please click to subscribe to my updates!</p>
-      <p>Subscriber Count: {subscribedCount}</p>
-      <button
-        onClick={() => {
-          setSubscribed(!subscribed);
-          setSubscribedCount((currentCount) => currentCount + 1);
-          setSubscribedCount((currentCount) => currentCount + 1);
-          if (!alerts) setAlerts(true);
-        }}
-      >
-        {subscribed ? "Unsubscribe" : "Subscribe"}
-      </button>
-      <button onClick={() => setAlerts(!alerts)}>
-        {alerts ? "Stop Email Alerts" : "Get Email Alerts"}
-      </button>
-    </section>
+    <div>
+      <Header loggedIn={loggedIn} toggleLoggedIn={toggleLoggedIn} />
+      <Content loggedIn={loggedIn} />
+    </div>
   );
 }
 
