@@ -1,8 +1,8 @@
-import CoinTossCounter from './CoinTossCounter'
+import SubscriberForm from './SubscriberForm'
 
 
 function App() {
-  return <CoinTossCounter />;
+  return <SubscriberForm />;
 }
 
 export default App;
