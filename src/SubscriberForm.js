@@ -2,11 +2,21 @@ import React, { useState } from "react";
 
 
 function SubscriberForm() {
+  const [name, setName] = useState("");
+  const handleNameChange = (event) => setName(event.target.value);
+
+  console.log("Current value of name:", name);
   return (
     <form>
       <label htmlFor="name">
         Enter Your Name:
-        <input type="text" id="name" name="name" />
+        <input
+          id="name"
+          type="text"
+          name="name"
+          onChange={handleNameChange}
+          value={name}
+        />
       </label>
       <label htmlFor="email">
         Your Email:
