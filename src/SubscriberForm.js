@@ -15,8 +15,8 @@ function SubscriberForm({ createSubscriber }) {
     setEmail("");
   };
 
-  console.log("Current value of name:", name);
-  console.log("Current value of email:", email);
+  // console.log("Current value of name:", name);
+  // console.log("Current value of email:", email);
   return (
     <form onSubmit={handleSubmit} >
       <label htmlFor="name">
