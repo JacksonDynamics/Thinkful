@@ -1,7 +1,6 @@
 import { useState } from "react";
 import SubscriberForm from "./SubscriberForm";
 import SubscriberList from "./SubscriberList";
-import SubscriberView from "./SubscriberView";
 
 
 function App() {
