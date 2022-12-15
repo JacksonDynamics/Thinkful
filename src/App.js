@@ -1,8 +1,8 @@
-import SubscriberForm from "./SubscriberForm";
+import ProfileEdit from "./ProfileEdit";
 
 
 function App() {
-  return <SubscriberForm />;
+  return <ProfileEdit />;
 }
 
 export default App;
