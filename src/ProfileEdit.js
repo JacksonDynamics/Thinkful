@@ -1,18 +1,17 @@
 import { useState, useEffect} from "react"
 
-function ProfileEdit() {
+function ProfileEdit({ userID }) {  // Added `userID` as a prop
     const [user, setUser] = useState({});
   
     useEffect(() => {
-      async function loadUsers() {
-        const response = await fetch(
-          "https://jsonplaceholder.typicode.com/users/1"
-        );
+      async function loadUser() {
+        const response = await fetch(`https://jsonplaceholder.typicode.com/users/${userID}`);
         const userFromAPI = await response.json();
         setUser(userFromAPI);
       }
-      loadUsers();
-    }, []); // Passing [] so that it only runs the effect once
+  
+      loadUser();
+    }, [userID]);; // Passing [] so that it only runs the effect once
   
     useEffect(() => {
       if (user.username) {
