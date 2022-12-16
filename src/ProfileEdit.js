@@ -4,14 +4,34 @@ function ProfileEdit({ userID }) {  // Added `userID` as a prop
     const [user, setUser] = useState({});
   
     useEffect(() => {
-      async function loadUser() {
-        const response = await fetch(`https://jsonplaceholder.typicode.com/users/${userID}`);
-        const userFromAPI = await response.json();
-        setUser(userFromAPI);
-      }
-  
-      loadUser();
-    }, [userID]);; // Passing [] so that it only runs the effect once
+        setUser({});
+        const abortController = new AbortController(); // Create a new `AbortController`
+      
+        async function loadUser() {
+          try {
+            const response = await fetch(
+              `https://jsonplaceholder.typicode.com/users/${userID}`,
+              { signal: abortController.signal } // Pass the `AbortController` signal to `fetch()`
+            );
+            const userFromAPI = await response.json();
+            setUser(userFromAPI);
+          } catch (error) {
+            if (error.name === "AbortError") {
+              // Ignore `AbortError`
+              console.log("Aborted", userID);
+            } else {
+              throw error;
+            }
+          }
+        }
+      
+        loadUser();
+      
+        return () => {
+          console.log("cleanup", userID);
+          abortController.abort(); // Cancels any pending request or response
+        };
+      }, [userID]);
   
     useEffect(() => {
       if (user.username) {
