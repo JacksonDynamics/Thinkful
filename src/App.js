@@ -1,21 +1,16 @@
-import React, { useState } from "react";
-import ProfileEdit from "./ProfileEdit";
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import Home from './Home'
+import About from './About'
+
 
 function App() {
-  const [userId, setUserID] = useState(1);
-
-  const userIds = [1, 2, 3, 4];
 
   return (
-    <div className="App">
-      {userIds.map((id) => (
-        <button key={id} onClick={() => setUserID(id)}>
-          User ID {id}
-        </button>
-      ))}
-      <h2>User ID {userId}</h2>
-      <ProfileEdit userID={userId} />
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<About />} />
+    </Routes>
   );
 }
 
