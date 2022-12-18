@@ -2,6 +2,7 @@ import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import Home from './Home'
 import About from './About'
+import UserProfile from './UserProfile'
 import NoMatch from './NoMatch'
 
 
@@ -18,6 +19,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/user/:userID" element={<UserProfile />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
     </>
