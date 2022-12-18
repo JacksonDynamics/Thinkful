@@ -6,7 +6,7 @@ function UserProfile() {
 
   // Use `useParams()` and `useEffect()`
   // Load profile data from https://jsonplaceholder.typicode.com/users/${userId}
-  const userId = useParams().userID;
+  const userId = useParams().userId;
   console.log(userId)
   useEffect(() => {
     async function loadUser() {

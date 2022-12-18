@@ -1,4 +1,6 @@
 import React from "react";
+import "./App.css";
+
 import { Routes, Route, Link } from "react-router-dom";
 import Home from './Home'
 import About from './About'
@@ -24,7 +26,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/user/:userID"
+        <Route path="/user/:userId"
                element={<UserProfile />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
