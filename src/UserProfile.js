@@ -4,8 +4,6 @@ import { useParams } from "react-router-dom";
 function UserProfile() {
   const [user, setUser] = useState({});
 
-  // Use `useParams()` and `useEffect()`
-  // Load profile data from https://jsonplaceholder.typicode.com/users/${userId}
   const userId = useParams().userId;
   console.log(userId)
   useEffect(() => {
