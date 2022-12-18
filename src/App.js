@@ -19,7 +19,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/user/:userID" element={<UserProfile />} />
+        <Route path="/user/:userID/post/:postID" element={<UserProfile />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
     </>

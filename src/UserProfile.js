@@ -1,5 +1,10 @@
+import { useParams } from "react-router-dom";
+
+
+
 function UserProfile(){
-    return <p>Profile</p>
+    const params = useParams();
+    return <p>{JSON.stringify(params)}</p>;
 }
 
 export default UserProfile
