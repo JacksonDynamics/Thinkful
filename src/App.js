@@ -9,22 +9,29 @@ import NoMatch from './NoMatch'
 function App() {
 
   return (
-    <>
-      <nav>
-        <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/about">About</Link></li>
-        </ul>
-      </nav>
+    <div className="App">
+      <div>
+        <Link to="/">Home</Link>
+      </div>
+      {Array(10)
+        .fill()
+        .map((ignoredValue, index) => index + 1)
+        .map((id) => (
+          <div key={id}>
+            <Link to={`/user/${id}`}>User {id}</Link>
+          </div>
+        ))}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/user/:userID/post/:postID" element={<UserProfile />} />
+        <Route path="/user/:userID"
+               element={<UserProfile />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
-    </>
+    </div>
   );
 }
 
 
 export default App;
+
