@@ -1,11 +1,12 @@
 import React from "react";
 import "./App.css";
 
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, Navigate } from "react-router-dom";
 import Home from './Home'
 import About from './About'
 import UserProfile from './UserProfile'
 import NoMatch from './NoMatch'
+import Back from './Back'
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <div>
         <Link to="/">Home</Link>
       </div>
+      
       {Array(10)
         .fill()
         .map((ignoredValue, index) => index + 1)
@@ -23,6 +25,8 @@ function App() {
             <Link to={`/user/${id}`}>User {id}</Link>
           </div>
         ))}
+        <br/>
+        <Back />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
